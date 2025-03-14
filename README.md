@@ -1,5 +1,5 @@
-> [!CAUTION]
-> This is a deprecated fork. Expect a new version soon.
+<!-- [!CAUTION]
+> This is a deprecated fork. Expect a new version soon.-->
 # WebAnimate
 #### WebAnimate is based on Wick Editor!
 ![test image](https://github.com/user-attachments/assets/8d05160d-884b-4110-bcc6-e7ec7023898f)
