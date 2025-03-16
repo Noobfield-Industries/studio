@@ -1,13 +1,5 @@
-<<<<<<< HEAD
-> [!CAUTION]
-> This is a deprecated fork. Expect a new version soon.
-# WebAnimate
-#### WebAnimate is based on NB Studio!
-![test image](https://github.com/user-attachments/assets/8d05160d-884b-4110-bcc6-e7ec7023898f)
-=======
 # NB Studio
 <!-- ![test image](https://github.com/user-attachments/assets/8d05160d-884b-4110-bcc6-e7ec7023898f) Removed due to being a old image. -->
->>>>>>> 230e363 (Few more changes, coffeescript lib added, TODO: add coffeescript!)
 
 NB Studio is a browser-based hybrid animation/coding environment for making interactive things for the web, heavily inspired by similar tools such as Flash, HyperCard[^2], and Scratch[^1]. It was developed in response to a growing need for such a tool for the modern web. NB Studio is currently live at <!--[my github pages](https://internetastronaut.github.io/web-animate/)--> *soon™*, come check it out sometime!
 
