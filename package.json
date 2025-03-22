@@ -8,13 +8,20 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "live-server",
+    "start": "node startwarn.js && serve",
+    "pretest": "gulp",
+    "test": "serve",
     "postinstall": "npm test"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "live-server": "^1.2.2"
+    "delete": "^1.1.0",
+    "gulp": "^5.0.0",
+    "gulp-coffee": "^3.0.3",
+    "gulp-concat": "^2.6.1",
+    "gulp-uglify": "^3.0.2",
+    "serve": "^14.2.4"
   }
 }

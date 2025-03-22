@@ -49,7 +49,7 @@ Tools.Dropper = function (wickEditor) {
         
     }
 
-    this.paperTool = new paper.Tool();
+    // this.paperTool = new paper.Tool(); less redos pls
 
     this.paperTool.onMouseMove = function(event) {
         var colorResult = wickEditor.canvas.getInteractiveCanvas().getColorAtPoint(event.point)
