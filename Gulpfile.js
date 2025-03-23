@@ -1,7 +1,7 @@
 // Gulpy gulpy!
-
-var [gulp, coffee, concat, uglify] = [require("gulp"), require("gulp-coffee"), require("gulp-concat"), require("gulp-uglify")]; // big hack cuz it's easier to do it this way.
-var {src, series, dest} = gulp;
+// trust me im gonna use coffeescript when the plugin update comes (trust me bro)
+var [gulp, coffee, concat, uglify, gif] = [require("gulp"), require("gulp-coffee"), require("gulp-concat"), require("gulp-uglify"), require("gulp-if")]; // big hack cuz it's easier to do it this way.
+var {src, series, parallel, dest} = gulp;
 var del = require("delete");
 
 function clean(cb) {
@@ -22,7 +22,7 @@ function engine(cb) {
         - Concat it into one file (better load on the network?? idk man)
         - return it.
     */
-    src("./src/project/*.js")
+    src("./src/project/*.js", {sourcemaps: true})
         .pipe(uglify())
         .pipe(concat("engine.js"))
         .pipe(dest("./dist"))
@@ -32,7 +32,7 @@ function engine(cb) {
 function editor(cb) {
     // Takes all of the editor code to match into one file.
     // TODO: Redo Editor, so it isn't one of the WORST codebases to mod.
-    src("./src/editor/**")
+    src("./src/editor/**", {sourcemaps: true})
         .pipe(uglify())
         .pipe(concat("editor.js"))
         .pipe(dest("./dist"))
@@ -41,19 +41,40 @@ function editor(cb) {
 
 function player(cb) {
     // Same thing. Player JS now!
-    src("./src/player/*.js")
+    src("./src/player/**.js", {sourcemaps: true})
         .pipe(uglify())
         .pipe(concat("player.js"))
         .pipe(dest("./dist"))
     cb();
 }
 
+function isJs(file) {
+    return file.extname === ".js"
+}
+function isCss(file) {
+    return file.extname === ".js"
+}
+
 function lib(cb) {
     src("./lib/**.js")
-        .pipe(uglify())
+        // .pipe(gif(isJs, uglify())) // bruh
         .pipe(concat("libs.js"))
         .pipe(dest("./dist"))
     cb()
 }
 
-exports.default = series(clean, lib, engine, editor, player)
+function css(cb) {
+    src("./styles/*.css")
+        .pipe(src("./lib/**.css"))
+        .pipe(concat("styles.css"))
+        .pipe(dest("./dist"))
+    cb()
+}
+
+exports.default = series(clean, parallel(css, engine, editor, player), lib)
+exports.styles = css
+exports.libs = lib
+exports.player = player
+exports.editor = editor
+exports.engine = engine
+exports.clean = clean

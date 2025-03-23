@@ -10,6 +10,11 @@
   "scripts": {
     "start": "node startwarn.js && serve",
     "pretest": "gulp",
+    "styles": "gulp styles",
+    "libraries": "gulp libs",
+    "editor": "gulp editor",
+    "player": "gulp player",
+    "clean": "gulp clean",
     "test": "serve",
     "postinstall": "npm test"
   },
@@ -21,6 +26,7 @@
     "gulp": "^5.0.0",
     "gulp-coffee": "^3.0.3",
     "gulp-concat": "^2.6.1",
+    "gulp-if": "^3.0.0",
     "gulp-uglify": "^3.0.2",
     "serve": "^14.2.4"
   }

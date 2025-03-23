@@ -20,31 +20,32 @@
 
 <head>
     <title>NB Studio</title>
-
-    <!-- Editor Dist -->
-    <script src="dist/editor.js"></script>
     
-    <!-- Editor and libs -->
-    <script src="dist/editor.js"></script>
-    <script src="dist/libs.js"></script>
+    <!-- Editor (+CSS) and libs -->
+        <script src="dist/editor.js"></script>
+        <link rel="stylesheet" href="dist/styles.css">
 
+    <!-- libs -->
+        <script src="dist/libs.js"></script>
     <!-- Engine Dist -->
-    <script src="dist/engine.js"></script>
-
+        <script src="dist/engine.js"></script>
+    
+    
     <!-- Player -->
     <script src="dist/player.js"></script>
-
     
-
+    
+    
     <script>
         $(document).ready(function() {
             window.wickEditor = new WickEditor();
         });
-    </script>
+        </script>
 </head>
 
 <body>
-<div class="noselect">
+    <div class="noselect">
+    <script src="dist/libs.js"></script>
     <!-- Hidden element to always be selected so browser always fires copy/paste events -->
     <input id="hidden-input" class="hidden" type="text" value="" />
 
